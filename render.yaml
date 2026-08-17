@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: tweet-project
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python TweetProject/manage.py migrate && python TweetProject/manage.py collectstatic --noinput"
+    startCommand: "gunicorn TweetProject.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DJANGO_SETTINGS_MODULE
+        value: TweetProject.production_settings
+
+  - type: pserv
+    name: tweet-postgres
+    plan: free
+    ipAllowList: []
