@@ -1,0 +1,13 @@
+.git
+.gitignore
+.vercel
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+.env
+.env.local
+node_modules/
+venv/
+.venv/
