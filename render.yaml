@@ -9,7 +9,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.11
       - key: DJANGO_SETTINGS_MODULE
-        value: TweetProject.production_settings
+        value: TweetProject.TweetProject.production_settings
 
   - type: pserv
     name: tweet-postgres

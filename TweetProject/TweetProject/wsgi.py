@@ -11,10 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-# Use production settings on Vercel, development settings locally
-if os.getenv("VERCEL"):
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TweetProject.production_settings")
+# Use production settings on production, development settings locally
+if os.getenv("VERCEL") or os.getenv("RENDER"):
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TweetProject.TweetProject.production_settings")
 else:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TweetProject.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TweetProject.TweetProject.settings")
 
 application = get_wsgi_application()
