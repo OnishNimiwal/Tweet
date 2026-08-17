@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center mt-5">
+
+    <h1 class="display-4">🐦 Welcome to Tweet Project</h1>
+
+    <p class="lead mt-3">
+        Create, edit, delete, and search tweets using Django.
+    </p>
+
+    <a href="{% url 'tweet_list' %}" class="btn btn-primary btn-lg mt-4">
+        Go to Tweet App →
+    </a>
+
+</div>
+
+{% endblock %}

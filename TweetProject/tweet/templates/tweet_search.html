@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Search Tweets</h2>
+
+<form method="GET">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">
+        Search
+    </button>
+</form>
+
+<hr>
+
+{% for tweet in tweets %}
+
+<div class="card mt-3 p-3">
+
+    <h5>{{ tweet.user.username }}</h5>
+
+    <p>{{ tweet.text }}</p>
+
+    {% if tweet.photo %}
+        <img src="{{ tweet.photo.url }}" width="250">
+    {% endif %}
+
+</div>
+
+{% empty %}
+
+<h4>No Tweets Found</h4>
+
+{% endfor %}
+
+{% endblock %}
